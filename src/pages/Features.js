@@ -115,9 +115,9 @@ const Features = () => {
             <div className="feature-bubble" style={{ width: '15px', height: '15px', left: '15%', animationDelay: '0s', animationDuration: '7s' }}></div>
             <div className="feature-bubble" style={{ width: '10px', height: '10px', left: '50%', animationDelay: '2s', animationDuration: '5s' }}></div>
             <div className="feature-bubble" style={{ width: '12px', height: '12px', left: '80%', animationDelay: '4s', animationDuration: '6s' }}></div>
-            <div className="feature-icon">💬</div>
-            <h3 style={{ color: 'white' }}>AI-Powered Chat</h3>
-            <p style={{ color: 'rgba(255, 255, 255, 0.9)' }}>Get instant responses to your academic questions</p>
+            <div className="feature-icon">📝</div>
+            <h3 style={{ color: 'white' }}>Unlimited Practice</h3>
+            <p style={{ color: 'rgba(255, 255, 255, 0.9)' }}>Generate endless practice problems to test your knowledge!</p>
           </div>
 
           <div className="feature-item" style={{ 
@@ -132,9 +132,9 @@ const Features = () => {
             <div className="feature-bubble" style={{ width: '13px', height: '13px', left: '20%', animationDelay: '1s', animationDuration: '6.5s' }}></div>
             <div className="feature-bubble" style={{ width: '11px', height: '11px', left: '55%', animationDelay: '3s', animationDuration: '5.5s' }}></div>
             <div className="feature-bubble" style={{ width: '9px', height: '9px', left: '75%', animationDelay: '0.5s', animationDuration: '7s' }}></div>
-            <div className="feature-icon">📝</div>
-            <h3 style={{ color: 'white' }}>Study Notes</h3>
-            <p style={{ color: 'rgba(255, 255, 255, 0.9)' }}>Generate and organize study materials</p>
+            <div className="feature-icon">🕓</div>
+            <h3 style={{ color: 'white' }}>Timed Modes</h3>
+            <p style={{ color: 'rgba(255, 255, 255, 0.9)' }}>Improve your speed with intense time trials!</p>
           </div>
 
           <div className="feature-item" style={{ 
@@ -151,7 +151,7 @@ const Features = () => {
             <div className="feature-bubble" style={{ width: '12px', height: '12px', left: '85%', animationDelay: '3.5s', animationDuration: '6.5s' }}></div>
             <div className="feature-icon">🎯</div>
             <h3 style={{ color: 'white' }}>Personalized Learning</h3>
-            <p style={{ color: 'rgba(255, 255, 255, 0.9)' }}>Tailored recommendations based on your learning style</p>
+            <p style={{ color: 'rgba(255, 255, 255, 0.9)' }}>Custom questions tailored to your desired subject!</p>
           </div>
 
           <div className="feature-item" style={{ 
@@ -166,9 +166,9 @@ const Features = () => {
             <div className="feature-bubble" style={{ width: '11px', height: '11px', left: '18%', animationDelay: '1.5s', animationDuration: '7s' }}></div>
             <div className="feature-bubble" style={{ width: '13px', height: '13px', left: '48%', animationDelay: '4s', animationDuration: '5s' }}></div>
             <div className="feature-bubble" style={{ width: '10px', height: '10px', left: '78%', animationDelay: '0s', animationDuration: '6s' }}></div>
-            <div className="feature-icon">📱</div>
-            <h3 style={{ color: 'white' }}>Mobile Friendly</h3>
-            <p style={{ color: 'rgba(255, 255, 255, 0.9)' }}>Learn on the go with full mobile support</p>
+            <div className="feature-icon">⌯⌲</div>
+            <h3 style={{ color: 'white' }}>Streamline Studying</h3>
+            <p style={{ color: 'rgba(255, 255, 255, 0.9)' }}>Evaluate your knowledge base to focus on key areas for improvement!</p>
           </div>
 
           <div className="feature-item" style={{ 
@@ -183,9 +183,9 @@ const Features = () => {
             <div className="feature-bubble" style={{ width: '12px', height: '12px', left: '22%', animationDelay: '2.5s', animationDuration: '6.5s' }}></div>
             <div className="feature-bubble" style={{ width: '14px', height: '14px', left: '52%', animationDelay: '0.5s', animationDuration: '5.5s' }}></div>
             <div className="feature-bubble" style={{ width: '11px', height: '11px', left: '82%', animationDelay: '3s', animationDuration: '7s' }}></div>
-            <div className="feature-icon">🔒</div>
-            <h3 style={{ color: 'white' }}>Secure & Private</h3>
-            <p style={{ color: 'rgba(255, 255, 255, 0.9)' }}>Your data is protected with enterprise-grade security</p>
+            <div className="feature-icon">💾</div>
+            <h3 style={{ color: 'white' }}>Save Your Progress</h3>
+            <p style={{ color: 'rgba(255, 255, 255, 0.9)' }}>OctoPod remembers your progress when you signup for a free account!</p>
           </div>
 
           <div className="feature-item" style={{ 
@@ -200,9 +200,9 @@ const Features = () => {
             <div className="feature-bubble" style={{ width: '13px', height: '13px', left: '28%', animationDelay: '1s', animationDuration: '6s' }}></div>
             <div className="feature-bubble" style={{ width: '10px', height: '10px', left: '58%', animationDelay: '3.5s', animationDuration: '5.5s' }}></div>
             <div className="feature-bubble" style={{ width: '12px', height: '12px', left: '88%', animationDelay: '0s', animationDuration: '6.5s' }}></div>
-            <div className="feature-icon">⚡</div>
-            <h3 style={{ color: 'white' }}>Lightning Fast</h3>
-            <p style={{ color: 'rgba(255, 255, 255, 0.9)' }}>Get answers in seconds, not minutes</p>
+            <div className="feature-icon">🤸‍♂️</div>
+            <h3 style={{ color: 'white' }}>Versatile</h3>
+            <p style={{ color: 'rgba(255, 255, 255, 0.9)' }}>OctoPod can understand videos, audio, and even handwritten notes!</p>
           </div>
         </div>
       </div>
