@@ -13,13 +13,15 @@ import LearningPage from './pages/LearningPage.js';
 import Learn from './pages/Learn.js';
 import Timed from './pages/Timed.js';
 import { FileProvider } from './context/FileContext.js';
+import { AuthProvider } from './context/AuthContext.js';
 
 function App() {
   return (
-    <FileProvider>
-      <Router>
-        <MenuBar />
-        <Routes>
+    <AuthProvider>
+      <FileProvider>
+        <Router>
+          <MenuBar />
+          <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/getstarted" element={<GetStarted />} />
           <Route path="/about" element={<About />} />
@@ -33,6 +35,7 @@ function App() {
         </Routes>
       </Router>
     </FileProvider>
+  </AuthProvider>
   );
 }
 

@@ -1,15 +1,22 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import "./menubar.css";
 
 const MenuBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { isLoggedIn, logout } = useAuth();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
   const handleMenuItemClick = () => {
+    setIsOpen(false);
+  };
+
+  const handleLogout = () => {
+    logout();
     setIsOpen(false);
   };
 
@@ -71,7 +78,30 @@ const MenuBar = () => {
           <img src="/assets/Octopus.png" alt="Octopus" style={{ height: '2rem', verticalAlign: 'middle', marginRight: '0.5rem' }} />
           </div>
           <div className="menu-right">
-            <Link to="/login" className="login-btn">Login</Link>
+            {isLoggedIn ? (
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <span style={{ 
+                  fontFamily: '"Fredoka One", "Baloo 2", "Rounded Mplus 1c", "Comic Sans MS", cursive',
+                  fontWeight: '600',
+                  fontSize: '1.1rem',
+                  color: 'white'
+                }}>
+                  Hi! 👋
+                </span>
+                <button 
+                  onClick={handleLogout}
+                  className="login-btn"
+                  style={{
+                    background: 'linear-gradient(135deg, #f87171 0%, #ef4444 100%)',
+                    cursor: 'pointer'
+                  }}
+                >
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <Link to="/login" className="login-btn">Login</Link>
+            )}
           </div>
         </div>
       </nav>
