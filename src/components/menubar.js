@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "../styles/menubar.css";
+import "./menubar.css";
 
 const MenuBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,58 +14,61 @@ const MenuBar = () => {
   };
 
   return (
-    <nav className="menubar">
-      <div className="menubar-container">
-        <div className="logo">
-          <h1>Pocket Prof</h1>
+      <nav className="menubar">
+        <div className="menubar-container">
+          <div className="menu-left">
+            <button 
+              className="menu-toggle"
+              onClick={toggleMenu}
+              aria-label="Toggle menu"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <ul className={`menu-items ${isOpen ? "open" : ""}`}>
+              <li>
+                <Link 
+                  to="/" 
+                  onClick={handleMenuItemClick}
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/features" 
+                  onClick={handleMenuItemClick}
+                >
+                  Features
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/about" 
+                  onClick={handleMenuItemClick}
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/contact" 
+                  onClick={handleMenuItemClick}
+                >
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div className="logo">
+            <h1>Pocket Prof</h1>
+          </div>
+          <div className="menu-right">
+            <Link to="/login" className="login-btn">Login</Link>
+          </div>
         </div>
-
-        <button 
-          className="menu-toggle"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-        <ul className={`menu-items ${isOpen ? "open" : ""}`}>
-          <li>
-            <Link 
-              to="/" 
-              onClick={handleMenuItemClick}
-            >
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link 
-              to="/about" 
-              onClick={handleMenuItemClick}
-            >
-              About
-            </Link>
-          </li>
-          <li>
-            <Link 
-              to="/features" 
-              onClick={handleMenuItemClick}
-            >
-              Features
-            </Link>
-          </li>
-          <li>
-            <Link 
-              to="/contact" 
-              onClick={handleMenuItemClick}
-            >
-              Contact
-            </Link>
-          </li>
-        </ul>
-      </div>
-    </nav>
+      </nav>
   );
 };
 

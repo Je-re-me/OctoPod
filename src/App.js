@@ -7,6 +7,7 @@ import About from './pages/About.js';
 import Features from './pages/Features.js';
 import Contact from './pages/Contact.js';
 import GetStarted from './pages/GetStarted.js';
+import Login from './pages/Login.js';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/features" element={<Features />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/chat" element={<Gemini />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </Router>
   );
