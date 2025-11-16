@@ -1,7 +1,6 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import React, { useState, useEffect} from "react";
 import ReactMarkdown from "react-markdown";
-import initialPrompt from "./initialPrompt.txt";
 import { useFile } from "../context/FileContext";
 
 const apiKey = process.env.REACT_APP_API_KEY;
@@ -21,9 +20,9 @@ function Gemini() {
     const model = genai.getGenerativeModel({ model: "gemini-2.5-flash" });
 
     // Include file content in the prompt if available
-    let fullPrompt = initialPrompt + userInput;
+    let fullPrompt = userInput;
     if (fileContent) {
-      fullPrompt = initialPrompt + `\n\nUploaded file content:\n${fileContent}\n\nUser request: ${userInput}`;
+      fullPrompt = `Uploaded file content:\n${fileContent}\n\nUser request: ${userInput}`;
     }
 
     const result = await model.generateContent(fullPrompt);
