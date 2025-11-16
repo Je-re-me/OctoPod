@@ -8,7 +8,7 @@ const Home = () => {
     <div className="page-container">
       <div className="page-content">
         <h1>Welcome to OctoPod</h1>
-        <p>Your personal AI-powered study companion!</p>
+        <h3 style={{ color: '#666', fontWeight: '400', marginTop: '0.5rem', textAlign: 'center' }}>Your personal AI-powered study companion!</h3>
 
         <div className="home-features">
             
