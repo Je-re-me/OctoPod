@@ -5,12 +5,12 @@ const About = () => {
   return (
     <div className="page-container">
       <div className="page-content">
-        <h1>About Octolearn</h1>
+        <h1>About OctoPod</h1>
 
         <div className="about-section">
-          <h2>What is Octolearn?</h2>
+          <h2>What is OctoPod?</h2>
           <p>
-            Octolearn is an innovative educational platform that leverages artificial intelligence
+            OctoPod is an innovative educational platform that leverages artificial intelligence
             to provide personalized tutoring and academic support. Our mission is to make quality
             education accessible to everyone, everywhere.
           </p>

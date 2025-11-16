@@ -63,7 +63,7 @@ const MenuBar = () => {
           </div>
           <div className="logo">
             <img src="/assets/Octopus.png" alt="Octopus" style={{ height: '2rem', verticalAlign: 'middle', marginRight: '0.5rem' }} />
-            <h1 style={{ display: 'inline', verticalAlign: 'middle' }}>Octolearn</h1>
+            <h1 style={{ display: 'inline', verticalAlign: 'middle' }}>OctoPod</h1>
           </div>
           <div className="menu-right">
             <Link to="/login" className="login-btn">Login</Link>

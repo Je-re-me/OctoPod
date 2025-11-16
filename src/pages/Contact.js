@@ -37,7 +37,7 @@ const Contact = () => {
               <span className="icon">📧</span>
               <div>
                 <h4>Email</h4>
-                <p>support@octolearn.com</p>
+                <p>support@OctoPod.com</p>
               </div>
             </div>
             
@@ -45,7 +45,7 @@ const Contact = () => {
               <span className="icon">🐦</span>
               <div>
                 <h4>Social Media</h4>
-                <p>@octolearn</p>
+                <p>@OctoPod</p>
               </div>
             </div>
           </div>
