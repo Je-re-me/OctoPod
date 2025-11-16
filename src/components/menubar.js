@@ -62,7 +62,8 @@ const MenuBar = () => {
             </ul>
           </div>
           <div className="logo">
-            <h1>Pocket Prof</h1>
+            <img src="/assets/Octopus.png" alt="Octopus" style={{ height: '2rem', verticalAlign: 'middle', marginRight: '0.5rem' }} />
+            <h1 style={{ display: 'inline', verticalAlign: 'middle' }}>Octolearn</h1>
           </div>
           <div className="menu-right">
             <Link to="/login" className="login-btn">Login</Link>

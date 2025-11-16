@@ -5,12 +5,12 @@ const About = () => {
   return (
     <div className="page-container">
       <div className="page-content">
-        <h1>About Pocket Prof</h1>
+        <h1>About Octolearn</h1>
 
         <div className="about-section">
-          <h2>What is Pocket Prof?</h2>
+          <h2>What is Octolearn?</h2>
           <p>
-            Pocket Prof is an innovative educational platform that leverages artificial intelligence
+            Octolearn is an innovative educational platform that leverages artificial intelligence
             to provide personalized tutoring and academic support. Our mission is to make quality
             education accessible to everyone, everywhere.
           </p>

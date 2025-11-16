@@ -6,7 +6,7 @@ const Features = () => {
     <div className="page-container">
       <div className="page-content">
         <h1>Features</h1>
-        <p className="subtitle">Discover what makes Pocket Prof special!</p>
+        <p className="subtitle">Discover what makes Octolearn special!</p>
 
         <div className="features-grid">
           <div className="feature-item">

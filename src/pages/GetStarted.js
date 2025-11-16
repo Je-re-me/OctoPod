@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "../styles/pages.css";
 
 const GetStarted = () => {
@@ -18,9 +19,12 @@ const GetStarted = () => {
     <div className="page-container">
       <div className="page-content">
         <h1>Get Started</h1>
-        <p className="description">(Make sure to obey copyright laws when uploading materials!)</p>
-        <p className="description">We are not liable for any damages </p>
         <p className="subtitle">Upload your academic materials to begin!</p>
+        <div style={{ textAlign: "center", margin: "1rem 0" }}>
+          <Link to="/terms" style={{ color: "#4449b7", fontWeight: 600, textDecoration: "underline" }}>
+            View Terms of Use
+          </Link>
+        </div>
 
         <form className="upload-form" onSubmit={handleSubmit}>
           <input

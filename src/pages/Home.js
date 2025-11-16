@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div className="page-container">
       <div className="page-content">
-        <h1>Welcome to Pocket Prof</h1>
+        <h1>Welcome to Octolearn</h1>
         <p>Your personal AI-powered study companion!</p>
 
         <div className="home-features">
