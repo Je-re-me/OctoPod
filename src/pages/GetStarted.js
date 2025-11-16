@@ -14,23 +14,30 @@ const GetStarted = () => {
       // Handle file upload logic here
       console.log("File uploaded:", file.name);
       
+      // For now, only support .txt files to ensure content can be read
+      if (file.type !== "text/plain" && !file.name.endsWith('.txt')) {
+        alert("Please upload a .txt file for now. PDF and DOC support coming soon!");
+        return;
+      }
+      
       // Read file content
       const reader = new FileReader();
       reader.onload = (event) => {
         const content = event.target.result;
+        console.log("File content loaded, length:", content.length);
         setFileContent(content);
         setUploadedFile(file);
-        console.log("File content loaded");
         // Redirect to LearningPage after upload
         navigate("/learningpage");
       };
       
-      // Read as text for txt files, or as data URL for other formats
-      if (file.type === "text/plain") {
-        reader.readAsText(file);
-      } else {
-        reader.readAsText(file); // You may need to adjust this based on file type
-      }
+      reader.onerror = (error) => {
+        console.error("Error reading file:", error);
+        alert("Error reading file. Please try again.");
+      };
+      
+      // Read as text
+      reader.readAsText(file);
     }
   }
     return (
@@ -47,13 +54,16 @@ const GetStarted = () => {
         <form className="upload-form" onSubmit={handleSubmit}>
           <input
             type="file"
-            accept=".pdf,.doc,.docx,.txt"
+            accept=".txt"
             onChange={(e) => getFile(e.target.files[0])}
           />
           <button type="submit" disabled={!file}>
             Upload and Start Learning
           </button>
         </form>
+        <p style={{ marginTop: '1rem', fontSize: '0.9rem', color: '#666' }}>
+          Note: Currently only .txt files are supported
+        </p>
       </div>
     </div>
   );
