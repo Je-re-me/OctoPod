@@ -19,8 +19,8 @@ const LearningPage = () => {
             <div className="mode-desc">Challenge yourself with a timed session for quick recall.</div>
           </div>
           <div style={{ textAlign: 'center' }}>
-            <button className="study-mode-btn big-btn">Mock</button>
-            <div className="mode-desc">Simulate a real test environment to assess your knowledge.</div>
+            <button className="study-mode-btn big-btn">Plan</button>
+            <div className="mode-desc">Plan your workload to study at a good pace.</div>
           </div>
         </div>
       </div>
