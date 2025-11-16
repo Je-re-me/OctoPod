@@ -1,12 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/pages.css";
+import GetStarted from "./GetStarted";
 
 const Home = () => {
   return (
     <div className="page-container">
       <div className="page-content">
         <h1>Welcome to Pocket Prof</h1>
-        <p>Your personal AI-powered study companion</p>
+        <p>Your personal AI-powered study companion!</p>
 
         <div className="home-features">
             
@@ -26,7 +28,9 @@ const Home = () => {
           </div>
         </div>
 
-        <button className="cta-button">Get Started</button>
+        <Link to="/getstarted">
+          <button className="cta-button">Get Started</button>
+        </Link>
       </div>
     </div>
   );

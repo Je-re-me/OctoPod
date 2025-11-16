@@ -6,6 +6,7 @@ import Home from './pages/Home.js';
 import About from './pages/About.js';
 import Features from './pages/Features.js';
 import Contact from './pages/Contact.js';
+import GetStarted from './pages/GetStarted.js';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <MenuBar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/getstarted" element={<GetStarted />} />
         <Route path="/about" element={<About />} />
         <Route path="/features" element={<Features />} />
         <Route path="/contact" element={<Contact />} />
