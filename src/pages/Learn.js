@@ -14,6 +14,8 @@ const Learn = () => {
   const [showResult, setShowResult] = useState(false);
   const [wrongQuestions, setWrongQuestions] = useState([]);
   const [stats, setStats] = useState({ correct: 0, total: 0 });
+  const [summary, setSummary] = useState("");
+  const [loadingSummary, setLoadingSummary] = useState(false);
 
   const generateQuestion = async () => {
     if (!fileContent) {
@@ -116,6 +118,49 @@ Please create an educational question that tests a key concept from this materia
     } else {
       alert("Please select an answer first!");
     }
+  };
+
+  const generateSummary = async () => {
+    if (wrongQuestions.length === 0) {
+      alert("No wrong questions to analyze yet!");
+      return;
+    }
+
+    setLoadingSummary(true);
+    setSummary("");
+    
+    try {
+      const genai = new GoogleGenerativeAI(apiKey);
+      const model = genai.getGenerativeModel({ model: "gemini-2.5-flash" });
+
+      // Format wrong questions for analysis
+      const wrongQuestionsText = wrongQuestions.map((q, idx) => 
+        `Question ${idx + 1}: ${q.question}\nCorrect Answer: ${q.correctAnswer}) ${q.options[q.correctAnswer]}\nUser's Answer: ${q.userAnswer}) ${q.options[q.userAnswer]}`
+      ).join('\n\n');
+
+      const prompt = `Analyze the following questions that the student answered incorrectly. Based on these mistakes, identify the key topics and concepts they need to focus on for improvement.
+
+Wrong Questions:
+${wrongQuestionsText}
+
+Please provide:
+1. **Topics to Focus On**: List the main topics/concepts that need more attention
+2. **Common Patterns**: Identify any patterns in the mistakes
+3. **Study Recommendations**: Specific suggestions for improvement
+
+Format your response in a clear, organized manner using markdown.`;
+
+      console.log("Generating summary...");
+      const result = await model.generateContent(prompt);
+      const res = await result.response;
+      const text = await res.text();
+      console.log("Summary received");
+      setSummary(text);
+    } catch (error) {
+      console.error("Error generating summary:", error);
+      alert(`Error: ${error.message || "Failed to generate summary. Please try again."}`);
+    }
+    setLoadingSummary(false);
   };
 
   return (
@@ -237,7 +282,37 @@ Please create an educational question that tests a key concept from this materia
         {/* Wrong Questions Review Section */}
         {wrongQuestions.length > 0 && (
           <div style={{ marginTop: '3rem' }}>
-            <h2 style={{ color: '#4449b7', marginBottom: '1rem' }}>Questions You Got Wrong ({wrongQuestions.length})</h2>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+              <h2 style={{ color: '#4449b7', margin: 0 }}>Questions You Got Wrong ({wrongQuestions.length})</h2>
+              <button
+                onClick={generateSummary}
+                className="cta-button"
+                disabled={loadingSummary}
+                style={{ margin: 0, padding: '0.75rem 1.5rem', fontSize: '0.95rem' }}
+              >
+                {loadingSummary ? "Generating Summary..." : "📊 Generate Study Summary"}
+              </button>
+            </div>
+
+            {/* AI Summary Section */}
+            {summary && (
+              <div style={{ 
+                marginBottom: '2rem', 
+                padding: '1.5rem', 
+                background: 'linear-gradient(135deg, #f0f4ff 0%, #e8f5e9 100%)', 
+                borderRadius: '12px', 
+                boxShadow: '0 4px 16px rgba(68, 73, 183, 0.15)',
+                border: '2px solid #4449b7'
+              }}>
+                <h3 style={{ color: '#4449b7', marginTop: 0, marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  🎯 Your Personalized Study Plan
+                </h3>
+                <div style={{ color: '#333' }}>
+                  <ReactMarkdown>{summary}</ReactMarkdown>
+                </div>
+              </div>
+            )}
+
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {wrongQuestions.map((item, index) => (
                 <div key={index} style={{ padding: '1.5rem', background: '#fff', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)', border: '2px solid #ffebee' }}>
