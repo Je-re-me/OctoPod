@@ -105,11 +105,6 @@ const GetStarted = () => {
           <img src="/assets/Octopus.png" alt="Octopus" style={{ height: '4rem', width: 'auto' }} />
         </div>
         <p className="subtitle" style={{ color: '#fff', fontWeight: '400', marginTop: '0.5rem', textAlign: 'center' }}>Upload your academic materials to begin!</p>
-        <div style={{ textAlign: "center", margin: "1rem 0" }}>
-          <Link to="/terms" style={{ color: "#4449b7", fontWeight: 600, textDecoration: "underline" }}>
-            View Terms of Use
-          </Link>
-        </div>
 
         <form className="upload-form" onSubmit={handleSubmit}>
           <input
@@ -121,6 +116,11 @@ const GetStarted = () => {
             Upload and Start Learning
           </button>
         </form>
+        <div style={{ textAlign: "center", margin: "1rem 0" }}>
+          <Link to="/terms" style={{ color: "#4449b7", fontWeight: 600, textDecoration: "underline" }}>
+            View Terms of Use
+          </Link>
+        </div>
         <p style={{ marginTop: '1rem', fontSize: '0.9rem', color: '#666' }}>
           Note: Currently only .txt files are supported
         </p>
