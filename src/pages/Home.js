@@ -19,7 +19,7 @@ const Home = () => {
     "🌟 Some octopuses can regenerate lost arms!",
     "🎪 Octopuses can change both their color and texture!",
     "🔬 Each octopus arm can act independently!",
-    "🌈 Octopuses are color blind but can still match their surroundings!"
+    "🌈 Octopuses are color blind but can still match their surroundings!",
   ];
 
   const [currentFact, setCurrentFact] = useState("");
@@ -28,15 +28,39 @@ const Home = () => {
     const randomFact = funFacts[Math.floor(Math.random() * funFacts.length)];
     setCurrentFact(randomFact);
   }, []);
-  
+
+  useEffect(() => {
+    const els = document.querySelectorAll(".fact-bubble");
+    if (!els || els.length === 0) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 },
+    );
+
+    els.forEach((el) => io.observe(el));
+
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <div className="page-container" style={{
-      background: 'linear-gradient(-45deg, #1e3a8a, #3b82f6, #06b6d4, #0891b2)',
-      backgroundSize: '400% 400%',
-      animation: 'oceanWave 15s ease infinite',
-      position: 'relative',
-      overflow: 'hidden'
-    }}>
+    <div
+      className="page-container"
+      style={{
+        background:
+          "linear-gradient(-45deg, #1e3a8a, #3b82f6, #06b6d4, #0891b2)",
+        backgroundSize: "400% 400%",
+        animation: "oceanWave 15s ease infinite",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
       <style>
         {`
           @keyframes oceanWave {
@@ -117,40 +141,134 @@ const Home = () => {
           }
         `}
       </style>
-      
+
       {/* Floating bubbles */}
-      <div className="bubble" style={{ left: '10%', width: '40px', height: '40px', animationDelay: '0s', animationDuration: '12s' }}></div>
-      <div className="bubble" style={{ left: '20%', width: '20px', height: '20px', animationDelay: '2s', animationDuration: '10s' }}></div>
-      <div className="bubble" style={{ left: '35%', width: '30px', height: '30px', animationDelay: '4s', animationDuration: '14s' }}></div>
-      <div className="bubble" style={{ left: '50%', width: '25px', height: '25px', animationDelay: '0s', animationDuration: '11s' }}></div>
-      <div className="bubble" style={{ left: '65%', width: '35px', height: '35px', animationDelay: '3s', animationDuration: '13s' }}></div>
-      <div className="bubble" style={{ left: '80%', width: '20px', height: '20px', animationDelay: '5s', animationDuration: '9s' }}></div>
-      <div className="bubble" style={{ left: '90%', width: '28px', height: '28px', animationDelay: '1s', animationDuration: '15s' }}></div>
-      
+      <div
+        className="bubble"
+        style={{
+          left: "10%",
+          width: "40px",
+          height: "40px",
+          animationDelay: "0s",
+          animationDuration: "12s",
+        }}
+      ></div>
+      <div
+        className="bubble"
+        style={{
+          left: "20%",
+          width: "20px",
+          height: "20px",
+          animationDelay: "2s",
+          animationDuration: "10s",
+        }}
+      ></div>
+      <div
+        className="bubble"
+        style={{
+          left: "35%",
+          width: "30px",
+          height: "30px",
+          animationDelay: "4s",
+          animationDuration: "14s",
+        }}
+      ></div>
+      <div
+        className="bubble"
+        style={{
+          left: "50%",
+          width: "25px",
+          height: "25px",
+          animationDelay: "0s",
+          animationDuration: "11s",
+        }}
+      ></div>
+      <div
+        className="bubble"
+        style={{
+          left: "65%",
+          width: "35px",
+          height: "35px",
+          animationDelay: "3s",
+          animationDuration: "13s",
+        }}
+      ></div>
+      <div
+        className="bubble"
+        style={{
+          left: "80%",
+          width: "20px",
+          height: "20px",
+          animationDelay: "5s",
+          animationDuration: "9s",
+        }}
+      ></div>
+      <div
+        className="bubble"
+        style={{
+          left: "90%",
+          width: "28px",
+          height: "28px",
+          animationDelay: "1s",
+          animationDuration: "15s",
+        }}
+      ></div>
+
       <div className="page-content home-content-wrapper">
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
-          <img src="/assets/Octopus.png" alt="Octopus" style={{ height: '4rem', width: 'auto' }} />
-          <h1 style={{ 
-            fontFamily: '"Fredoka One", "Baloo 2", "Rounded Mplus 1c", "Comic Sans MS", cursive',
-            fontWeight: '700',
-            letterSpacing: '1px',
-            margin: 0
-          }}>Welcome to OctoPod!</h1>
-          <img src="/assets/Octopus.png" alt="Octopus" style={{ height: '4rem', width: 'auto' }} />
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "1rem",
+          }}
+        >
+          <img
+            src="/assets/Octopus.png"
+            alt="Octopus"
+            style={{ height: "4rem", width: "auto" }}
+          />
+          <h1
+            style={{
+              fontFamily:
+                '"Fredoka One", "Baloo 2", "Rounded Mplus 1c", "Comic Sans MS", cursive',
+              fontWeight: "700",
+              letterSpacing: "1px",
+              margin: 0,
+            }}
+          >
+            Welcome to OctoPod!
+          </h1>
+          <img
+            src="/assets/Octopus.png"
+            alt="Octopus"
+            style={{ height: "4rem", width: "auto" }}
+          />
         </div>
-        <h3 style={{ color: '#000', fontWeight: '400', marginTop: '0.5rem', textAlign: 'center' }}>Your personal study companion!</h3>
+        <h3
+          style={{
+            color: "#000",
+            fontWeight: "400",
+            marginTop: "0.5rem",
+            textAlign: "center",
+          }}
+        >
+          Your personal study companion!
+        </h3>
 
         <div className="home-features">
-            
           <div className="feature-card">
             <div className="flip-card-inner">
               <div className="flip-card-front">
                 <h3>📚 Learn Anywhere</h3>
-                <p>Access your AI tutor anytime, anywhere on any device</p>
+                <p>Access your AI tutor anytime, anywhere on any device.</p>
               </div>
               <div className="flip-card-back">
-                <h3>📚 Learn Anywhere</h3>
-                <p>Whether you're at home or in a cafe, OctoPod is always ready to help. Our cloud-based platform syncs across all your devices, so you can pick up right where you left off!</p>
+                <p>
+                  Whether you're at home or in a cafe, OctoPod is always ready
+                  to help. Our cloud-based platform syncs across all your
+                  devices, so you can pick up right where you left off!
+                </p>
               </div>
             </div>
           </div>
@@ -162,8 +280,11 @@ const Home = () => {
                 <p>Get instant answers to your questions powered by AI</p>
               </div>
               <div className="flip-card-back">
-                <h3>🤖 Smart Assistance</h3>
-                <p>Our advanced AI understands and learns your study style. From math problems to essays, get personalized help that adapts to your needs!</p>
+                <p>
+                  Our advanced AI understands and learns your study style. From
+                  math problems to essays, get personalized help that adapts to
+                  your needs!
+                </p>
               </div>
             </div>
           </div>
@@ -175,8 +296,11 @@ const Home = () => {
                 <p>Have interactive conversations with your study buddy</p>
               </div>
               <div className="flip-card-back">
-                <h3>⚡ Real-time Chat</h3>
-                <p>Experience dynamic questions that feel like they are from a real tutor. Explore topics deeper, and get explanations in the way that makes sense to you!</p>
+                <p>
+                  Experience dynamic questions that feel like they are from a
+                  real tutor. Explore topics deeper, and get explanations in the
+                  way that makes sense to you!
+                </p>
               </div>
             </div>
           </div>
@@ -185,32 +309,37 @@ const Home = () => {
         <Link to="/getstarted">
           <button className="cta-button">Get Started</button>
         </Link>
-
-        
       </div>
-      <div style={{
-          marginTop: '3rem',
-          padding: '1.5rem',
-          background: 'rgba(255, 255, 255, 0.15)',
-          borderRadius: '15px',
-          backdropFilter: 'blur(10px)',
-          border: '2px solid rgba(255, 255, 255, 0.2)',
-          textAlign: 'center',
-          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
-        }}>
-          <h3 style={{ 
-            color: '#fff', 
-            marginBottom: '0.5rem',
-            fontSize: '1.2rem',
-            textShadow: '1px 1px 2px rgba(0, 0, 0, 0.3)'
-          }}>🎉 Fun Fact!</h3>
-          <p style={{ 
-            color: '#fff', 
-            fontSize: '1.1rem',
-            margin: 0,
-            textShadow: '1px 1px 2px rgba(0, 0, 0, 0.3)'
-          }}>{currentFact}</p>
+      <div style={{ marginTop: "3rem" }}>
+        <h3
+          style={{
+            color: "#fff",
+            marginBottom: "0.75rem",
+            fontSize: "1.2rem",
+            textShadow: "1px 1px 2px rgba(0, 0, 0, 0.3)",
+            textAlign: "center",
+          }}
+        >
+          🎉 Fun Facts!
+        </h3>
+
+        <style>
+          {`\n            .fact-bubbles-container {\n              display: flex;\n              flex-direction: column;\n              gap: 1rem;\n              align-items: center;\n              padding: 1rem 0 3rem;\n              max-width: 900px;\n              margin: 0 auto;\n            }\n\n            .fact-bubble {\n              width: min(92vw, 760px);\n              max-width: 760px;\n              background: rgba(255,255,255,0.09);\n              color: #fff;\n              padding: 1rem 1.25rem;\n              border-radius: 999px;\n              box-shadow: 0 6px 18px rgba(2,6,23,0.35);\n              transform: translateY(28px) scale(0.98);\n              opacity: 0;\n              transition: transform 600ms cubic-bezier(.22,.9,.3,1), opacity 600ms ease, box-shadow 300ms ease;\n              backdrop-filter: blur(6px);\n              border: 1px solid rgba(255,255,255,0.08);\n              display: flex;\n              align-items: center;\n              justify-content: center;\n              text-align: center;\n            }\n\n            .fact-bubble p { margin: 0; font-size: 1rem; line-height: 1.35; }\n\n            .fact-bubble.visible {\n              transform: translateY(0) scale(1);\n              opacity: 1;\n            }\n\n            @media (min-width: 860px) {\n              .fact-bubbles-container {\n                gap: 1.25rem;\n              }\n              .fact-bubble p { font-size: 1.05rem; }\n            }\n          `}
+        </style>
+
+        <div className="fact-bubbles-container">
+          {funFacts.map((fact, i) => (
+            <div
+              key={i}
+              className="fact-bubble"
+              aria-hidden={false}
+              role="article"
+            >
+              <p>{fact}</p>
+            </div>
+          ))}
         </div>
+      </div>
     </div>
   );
 };
