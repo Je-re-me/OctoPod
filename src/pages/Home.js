@@ -106,12 +106,12 @@ const Home = () => {
           }
 
           .flip-card-front {
-            background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+            background: linear-gradient(135deg, #5ac1eaff 0%, #3494edff 100%);
             color: white;
           }
 
           .flip-card-back {
-            background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+            background: linear-gradient(135deg, #3494edff 0%, #5ac1eaff 100%);
             color: white;
             transform: rotateY(180deg);
           }
