@@ -19,7 +19,7 @@ const Learn = () => {
 
   const generateQuestion = async () => {
     if (!fileContent) {
-      alert("Please upload a file first in Get Started page!");
+      alert("Please upload a file first in our Get Started page!");
       return;
     }
 

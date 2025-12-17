@@ -12,6 +12,7 @@ import TermsOfUse from './pages/TermsOfUse.js';
 import LearningPage from './pages/LearningPage.js';
 import Learn from './pages/Learn.js';
 import Timed from './pages/Timed.js';
+import SelfStudy from './pages/SelfStudy.js';
 import { FileProvider } from './context/FileContext.js';
 import { AuthProvider } from './context/AuthContext.js';
 
@@ -32,6 +33,7 @@ function App() {
           <Route path="/learningpage" element={<LearningPage />} />
           <Route path="/learn" element={<Learn />} />
           <Route path="/timed" element={<Timed />} />
+          <Route path="/selfstudy" element={<SelfStudy />} />
         </Routes>
       </Router>
     </FileProvider>

@@ -67,7 +67,7 @@ const LearningPage = () => {
           }}>Choose Study Mode</h1>
           <img src="/assets/Octopus.png" alt="Octopus" style={{ height: '4rem', width: 'auto' }} />
         </div>
-        <div style={{ display: 'flex', gap: '2rem', justifyContent: 'center', marginTop: '2rem' }}>
+        <div style={{ display: 'flex', gap: '2rem', justifyContent: 'center', marginTop: '2rem', flexWrap: 'wrap' }}>
           <div style={{ textAlign: 'center' }}>
             <Link to="/learn">
               <button className="study-mode-btn big-btn">Evaluation</button>
@@ -79,6 +79,12 @@ const LearningPage = () => {
               <button className="study-mode-btn big-btn">Time Attack</button>
             </Link>
             <div className="mode-desc">Challenge yourself with a timed session for quick recall.</div>
+          </div>
+          <div style={{ textAlign: 'center' }}>
+            <Link to="/selfstudy">
+              <button className="study-mode-btn big-btn">Self Study</button>
+            </Link>
+            <div className="mode-desc">Practice independently with your uploaded materials.</div>
           </div>
         </div>
       </div>
