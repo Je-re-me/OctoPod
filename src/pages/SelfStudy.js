@@ -31,7 +31,7 @@ const SelfStudy = () => {
     try {
       console.log("API Key exists:", !!apiKey);
       const genai = new GoogleGenerativeAI(apiKey);
-      const model = genai.getGenerativeModel({ model: "gemini-2.0-flash-exp" });
+      const model = genai.getGenerativeModel({ model: "gemini-2.5-flash" });
 
       const prompt = `You are a helpful study assistant. The student is studying the following material:
 
